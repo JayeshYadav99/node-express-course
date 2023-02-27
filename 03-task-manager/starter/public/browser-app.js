@@ -10,6 +10,7 @@ const showTasks = async () => {
     const {
       data: { tasks },
     } = await axios.get('/api/v1/tasks')
+    // console.log(axios.get('/api/v1/tasks'))
     if (tasks.length < 1) {
       tasksDOM.innerHTML = '<h5 class="empty-list">No tasks in your list</h5>'
       loadingDOM.style.visibility = 'hidden'
@@ -38,6 +39,7 @@ const showTasks = async () => {
       .join('')
     tasksDOM.innerHTML = allTasks
   } catch (error) {
+    console.log(error);
     tasksDOM.innerHTML =
       '<h5 class="empty-list">There was an error, please try later....</h5>'
   }
